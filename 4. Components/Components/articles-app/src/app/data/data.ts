@@ -9,6 +9,10 @@ export class ArticleData {
             articles[i] = new Article(data[i].title, data[i].description, data[i].author, data[i].imageUrl);
         }
 
+        // data.forEach(article => {
+        //     articles.push(new Article(article.title, article.description, article.author, article.imageUrl))
+        // })
+
         return articles;
 
     }

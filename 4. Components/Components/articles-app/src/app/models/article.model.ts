@@ -3,6 +3,5 @@ export class Article {
         public title: string,
         public description: string,
         public author: string,
-        public imageUrl: string
-    ) {}
+        public imageUrl: string) { }
 }
