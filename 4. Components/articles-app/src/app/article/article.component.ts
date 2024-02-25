@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Article } from '../models/article.model';
-
+import { Article } from '../models/article.models';
 
 @Component({
   selector: 'app-article',
@@ -9,8 +8,8 @@ import { Article } from '../models/article.model';
 })
 export class ArticleComponent {
   private symbols: number = 250;
-  @Input('article') article!: Article;
-  @Input('articleDesc') articleDesc: string = '';
+  @Input() article: any = Article;
+  @Input() articleDesc: string = '';
   descToShow: string;
   articleDescLen: number;
   showReadMoreBtn: boolean = true;
