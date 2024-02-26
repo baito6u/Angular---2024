@@ -9,13 +9,11 @@ import { ArticleData } from '../data/data';
   styleUrls: ['./articles.component.css']
 })
 export class ArticlesComponent implements OnInit {
-  articles: Article[];
+  articles: Article[] = [];
 
-    constructor() { }
+    constructor(){}
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.articles = new ArticleData().getData();
-        console.log(this.articles);
-        
     }
 }

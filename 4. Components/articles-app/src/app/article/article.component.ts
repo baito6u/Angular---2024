@@ -8,10 +8,10 @@ import { Article } from '../models/article.models';
 })
 export class ArticleComponent {
   private symbols: number = 250;
-  @Input() article: any = Article;
+  @Input() article!: Article;
   @Input() articleDesc: string = '';
-  descToShow: string;
-  articleDescLen: number;
+  descToShow: string = '';
+  articleDescLen: number = 0;
   showReadMoreBtn: boolean = true;
   showHideBtn: boolean = false;
   imageIsShown: boolean = false;
@@ -23,30 +23,24 @@ export class ArticleComponent {
 
   }
 
-  readMore(): void {
-      this.articleDescLen += this.symbols;
-      if (this.articleDescLen >= this.articleDesc.length) {
-          this.showReadMoreBtn = false;
-          this.showHideBtn = true;
-      } else {
-          this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
-      }
+  readMore():void {
+    this.articleDescLen += this.symbols;
+    if (this.articleDescLen >= this.articleDesc.length) {
+      this.showReadMoreBtn = false;
+      this.showHideBtn = true;
+    }
+    this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
   }
 
-  hideDesc(event: Event): void {
-      console.log(event);
-      this.symbols = 250;
-      this.articleDescLen = 0;
-      this.showReadMoreBtn = true;
-      this.showHideBtn = false;
+  hideDesc() {
+    this.descToShow = '';
+    this.articleDescLen = 0;
+    this.showReadMoreBtn = true;
+    this.showHideBtn = false;
   }
 
-  toggleImage(): void {
-      console.log('toggleImage');
-      if(this.imageIsShown) {
-          this.imageIsShown = false;
-      } else {
-          this.imageIsShown = true;
-      }
+  toggleImage() {
+    this.imageIsShown = !this.imageIsShown;
+    this.imageButtonTitle = this.imageIsShown ? "Hide Image" : "Show Image";
   }
 }
