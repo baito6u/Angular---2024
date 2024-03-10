@@ -1,29 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
-
-import { NewThemeComponent } from './new-theme/new-theme.component';
+import { AddThemeComponent } from './add-theme/add-theme.component';
 import { CurrentThemeComponent } from './current-theme/current-theme.component';
+import { AuthActivate } from '../guards/auth.activate';
 
 const routes: Routes = [
   {
     path: 'themes',
-    component: MainComponent,
     children: [
-        { 
-            path: '', 
-            pathMatch: 'full', 
-            component: MainComponent 
-        },
-        {
-            path: ':themeId',
-            component: CurrentThemeComponent,
-        }
+      { path: '', pathMatch: 'full', component: MainComponent },
+      { path: ':themeId', component: CurrentThemeComponent },
     ],
   },
   {
     path: 'add-theme',
-    component: NewThemeComponent,
+    component: AddThemeComponent,
+    canActivate: [AuthActivate],
   },
 ];
 
