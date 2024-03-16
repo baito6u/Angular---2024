@@ -8,6 +8,6 @@ import { EmailDirective } from './validators/email.directive';
 @NgModule({
   declarations: [LoaderComponent, WelcomMsgComponent, EmailDirective],
   imports: [CommonModule, RouterModule],
-  exports: [LoaderComponent, WelcomMsgComponent],
+  exports: [LoaderComponent, WelcomMsgComponent, EmailDirective],
 })
 export class SharedModule {}
