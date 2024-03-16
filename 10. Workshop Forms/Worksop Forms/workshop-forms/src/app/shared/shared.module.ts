@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { EmailDirective } from './validators/email.directive';
 
 @NgModule({
-  declarations: [LoaderComponent, WelcomMsgComponent, EmailDirective],
+  declarations: [LoaderComponent, WelcomMsgComponent, EmailDirective,],
   imports: [CommonModule, RouterModule],
   exports: [LoaderComponent, WelcomMsgComponent, EmailDirective],
 })
