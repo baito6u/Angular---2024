@@ -70,3 +70,7 @@
 .green-button {
   background-color: green;
 }
+
+p.error {
+  color: red;
+}

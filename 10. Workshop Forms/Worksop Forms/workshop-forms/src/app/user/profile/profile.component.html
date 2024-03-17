@@ -27,11 +27,9 @@
         </div>
 
         <ng-container *ngIf="form.get('username')?.touched">
-          <p class="error" *ngIf="form.get('username')?.errors?.['required']">
-            Username is required!
+          <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is required!
           </p>
-          <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
-            Username is not must be at least 5 characters!
+          <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">Username is not must be at least 5 characters!
           </p>
         </ng-container>
 
@@ -41,11 +39,9 @@
         </div>
 
         <ng-container *ngIf="form.get('email')?.touched">
-          <p class="error" *ngIf="form.get('email')?.errors?.['required']">
-            Email is required!
+          <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!
           </p>
-          <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">
-            Email is not valid!
+          <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">Email is not valid!
           </p>
         </ng-container>
 
@@ -58,8 +54,8 @@
             <input type="text" name="tel" id="tel" value={{profileDetails.tel}} formControlName="tel">
           </div>
         </div>
-        <button class="red-button">Cancel</button>
-        <button class="green-button">Save</button>
+        <button class="red-button" (click)="onCancel($event)">Cancel</button>
+        <button class="green-button" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : 'green'}">Save</button>
       </form>
     </ng-container>
   </div>
